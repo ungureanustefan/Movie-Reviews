@@ -13,7 +13,7 @@ function Button({ children, handleClick, variant, size }: ButtonProps) {
       onClick={handleClick}
       variant={variant}
       size={size}
-      sx={{ height: "100%", alignSelf: "center" }}
+      sx={{ height: "100%", width: "fit-content" }}
     >
       {children}
     </MUIButton>

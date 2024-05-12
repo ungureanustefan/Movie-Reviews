@@ -5,7 +5,6 @@ import {
   TypeReview,
 } from "../../../types/movieTypes";
 
-// Define a service using a base URL and expected endpoints
 export const moviesApi = createApi({
   reducerPath: "moviesApi",
   baseQuery: fetchBaseQuery({
@@ -15,13 +14,11 @@ export const moviesApi = createApi({
   endpoints: (builder) => ({
     getMovies: builder.query<TypeMovies, string>({
       query: () => "/movies",
-      providesTags: ["Movies"],
     }),
     getMovieCompanies: builder.query<TypeMovieCompanies, string>({
       query: () => "/movieCompanies",
-      providesTags: ["Movies"],
     }),
-    addReview: builder.mutation<TypeReview, Partial<TypeReview>>({
+    addReview: builder.mutation<{ message: string }, Partial<TypeReview>>({
       query(body) {
         return {
           url: `/submitReview`,
@@ -29,13 +26,10 @@ export const moviesApi = createApi({
           body,
         };
       },
-      invalidatesTags: ["Movies"],
     }),
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
 export const {
   useGetMoviesQuery,
   useGetMovieCompaniesQuery,

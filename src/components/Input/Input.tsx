@@ -25,11 +25,11 @@ function Input({
         error={!!error}
         id="outlined-error-helper-text"
         label={label}
-        defaultValue="Hello World"
         helperText={error}
         onChange={handleChange}
         multiline={multiline}
         rows={rows}
+        fullWidth
       />
     </>
   );
