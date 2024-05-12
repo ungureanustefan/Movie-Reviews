@@ -1,10 +1,8 @@
 import { Box, debounce } from "@mui/material";
 import { useState } from "react";
-import Button from "../../../components/Button/Button";
-import Input from "../../../components/Input/Input";
-import Text from "../../../components/Text/Text";
 import { useAddReviewMutation } from "../../../store/slices/movies/moviesApiSlice";
 import { TypeSelectedMovie } from "../../../types/movieTypes";
+import { Button, Input, Text } from "../../../components";
 
 function MovieReviewForm({
   selectedMovie,
@@ -15,6 +13,8 @@ function MovieReviewForm({
 }) {
   const [review, setReview] = useState("");
   const [addReview, result] = useAddReviewMutation();
+
+  const isReviewGt100 = review.length > 100;
 
   const handleSubmit = () => {
     addReview(review);
@@ -52,14 +52,19 @@ function MovieReviewForm({
             setValue={debouncedSetValue}
             label="Review"
             error={
-              review.length > 100
+              isReviewGt100
                 ? "Review message cannot be over 100 characters"
                 : ""
             }
             multiline
             rows={5}
           />
-          <Button variant="contained" size="small" handleClick={handleSubmit}>
+          <Button
+            variant="contained"
+            size="small"
+            handleClick={handleSubmit}
+            disabled={isReviewGt100}
+          >
             Submit
           </Button>
           <Text style={{ color: "green", fontWeight: "bold" }}>

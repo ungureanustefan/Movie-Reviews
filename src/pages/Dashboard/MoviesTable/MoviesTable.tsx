@@ -74,7 +74,6 @@ function MoviesTable({
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
   const rows = useMemo(
     () =>
       moviesData.map((movie) =>

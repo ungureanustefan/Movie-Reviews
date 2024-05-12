@@ -5,15 +5,23 @@ type ButtonProps = {
   variant?: "text" | "contained" | "outlined";
   handleClick?: () => void;
   size?: "small" | "medium" | "large";
+  disabled?: boolean;
 };
 
-function Button({ children, handleClick, variant, size }: ButtonProps) {
+function Button({
+  children,
+  handleClick,
+  variant,
+  size,
+  disabled,
+}: ButtonProps) {
   return (
     <MUIButton
       onClick={handleClick}
       variant={variant}
       size={size}
       sx={{ height: "100%", width: "fit-content" }}
+      disabled={disabled}
     >
       {children}
     </MUIButton>

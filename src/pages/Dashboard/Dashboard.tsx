@@ -1,17 +1,16 @@
 import { useState } from "react";
 
 import { Box, CircularProgress, useMediaQuery } from "@mui/material";
-import Button from "../../components/Button/Button";
-import Text from "../../components/Text/Text";
 import {
   useGetMovieCompaniesQuery,
   useGetMoviesQuery,
 } from "../../store/slices/movies/moviesApiSlice";
 import { TypeSelectedMovie } from "../../types/movieTypes";
-import MovieReviewForm from "./MovieReviewForm/MovieReviewForm";
-import MoviesTable from "./MoviesTable/MoviesTable";
-import MovieReviewModal from "./MovieReviewModal/MovieReviewModal";
 import { deviceMaxWidth } from "../../utils/breakpoints";
+import MovieReviewForm from "./MovieReviewForm/MovieReviewForm";
+import MovieReviewModal from "./MovieReviewModal/MovieReviewModal";
+import MoviesTable from "./MoviesTable/MoviesTable";
+import { Button, Text } from "../../components";
 
 function Dashboard() {
   const {

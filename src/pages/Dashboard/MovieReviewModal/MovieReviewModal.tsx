@@ -1,6 +1,6 @@
 import { Box, Modal } from "@mui/material";
-import MovieReviewForm from "../MovieReviewForm/MovieReviewForm";
 import { TypeSelectedMovie } from "../../../types/movieTypes";
+import MovieReviewForm from "../MovieReviewForm/MovieReviewForm";
 
 type Props = {
   handleClose: () => void;
