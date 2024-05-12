@@ -1,9 +1,23 @@
-interface ButtonProps {
-  children: string;
-}
+import { Button as MUIButton } from "@mui/material";
 
-function Button({ children }: ButtonProps) {
-  return <button>{children}</button>;
+type ButtonProps = {
+  children: string;
+  variant?: "text" | "contained" | "outlined";
+  handleClick?: () => void;
+  size?: "small" | "medium" | "large";
+};
+
+function Button({ children, handleClick, variant, size }: ButtonProps) {
+  return (
+    <MUIButton
+      onClick={handleClick}
+      variant={variant}
+      size={size}
+      sx={{ height: "100%", alignSelf: "center" }}
+    >
+      {children}
+    </MUIButton>
+  );
 }
 
 export default Button;
